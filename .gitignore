@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+mlflow.db
+mlartifacts/
+.dvc/cache/
+.dvc/tmp/
