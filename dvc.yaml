@@ -1,0 +1,17 @@
+stages:
+  preparer:
+    cmd: python src/preparer.py
+    deps: [src/preparer.py, data/transactions.csv]
+    params: [preparation.test_size]
+    outs: [data/prepare]
+  entrainer:
+    cmd: python src/entrainer.py
+    deps: [src/entrainer.py, data/prepare]
+    params: [entrainement.n_estimators, entrainement.max_depth]
+    outs: [models/model.pkl]
+  evaluer:
+    cmd: python src/evaluer.py
+    deps: [src/evaluer.py, models/model.pkl, data/prepare]
+    metrics:
+      - reports/metrics.json:
+          cache: false
