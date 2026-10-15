@@ -1,0 +1,4 @@
+name: tp2-pipeline
+entry_points:
+  main:
+    command: "python pipeline.py"
